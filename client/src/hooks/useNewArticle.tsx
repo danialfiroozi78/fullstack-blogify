@@ -44,9 +44,6 @@ export default function useNewArticle() {
     if (data.cover_image instanceof File)
       formData.append("cover_image", data.cover_image);
 
-    for (const [key, value] of formData.entries()) {
-      console.log(key, value);
-    }
     try {
       const response = await createArticleMutation(formData).unwrap();
 

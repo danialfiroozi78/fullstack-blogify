@@ -23,7 +23,7 @@ type ArticleFilters = {
 
 export async function getCategories(): Promise<Category[]> {
   try {
-    const res = await fetch(`http://localhost:3001/api/categories`, {
+    const res = await fetch(`${process.env.API_URL}categories`, {
       next: {
         revalidate: 3600,
       },
@@ -52,7 +52,7 @@ export const getArticles = async (
   if (filters.sort) query.set("sort", filters.sort);
 
   const response = await fetch(
-    `http://localhost:3001/api/articles?${query.toString()}`,
+    `${process.env.API_URL}articles?${query.toString()}`,
     {
       cache: "no-store",
     },
@@ -68,14 +68,11 @@ export const getArticles = async (
 export async function getArticleDetails(
   slug: string,
 ): Promise<GetArticleDetailsResType> {
-  const res = await fetch(
-    `http://localhost:3001/api/articles/details/${slug}`,
-    {
-      next: {
-        revalidate: 3600,
-      },
+  const res = await fetch(`${process.env.API_URL}articles/details/${slug}`, {
+    next: {
+      revalidate: 3600,
     },
-  );
+  });
 
   return await res.json();
 }
@@ -83,7 +80,7 @@ export async function getArticleDetails(
 export async function getArticleComments(
   id: number,
 ): Promise<GetArticleCommentsResType> {
-  const res = await fetch(`http://localhost:3001/api/comments/article/${id}`, {
+  const res = await fetch(`${process.env.API_URL}comments/article/${id}`, {
     next: {
       revalidate: 3600,
     },
@@ -94,7 +91,7 @@ export async function getArticleComments(
 
 export const getNewestArticles = async (): Promise<GetArticlesResType> => {
   const response = await fetch(
-    `http://localhost:3001/api/articles?sort=1&limit=4`,
+    `${process.env.API_URL}articles?sort=1&limit=4`,
     {
       cache: "no-store",
     },
@@ -109,7 +106,7 @@ export const getNewestArticles = async (): Promise<GetArticlesResType> => {
 
 export const getMoreVisitedArticles = async (): Promise<GetArticlesResType> => {
   const response = await fetch(
-    `http://localhost:3001/api/articles?sort=3&limit=4`,
+    `${process.env.API_URL}articles?sort=3&limit=4`,
     {
       cache: "no-store",
     },

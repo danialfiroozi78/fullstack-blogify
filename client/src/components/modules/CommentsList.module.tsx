@@ -14,8 +14,6 @@ export default async function CommentsList({
   const cookieStore = await cookies();
   const token = cookieStore.get("access_token");
 
-  console.log(comments);
-
   return (
     <>
       {article?.data?.allow_comments ? (
