@@ -1,0 +1,123 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* Light - 300 */
+@font-face {
+    font-family: "Yekan Bakh";
+    src: url("/font/Yekan Bakh FaNum 03 Light.eot");
+    src: url("/font/Yekan Bakh FaNum 03 Light.eot?#iefix") format("embedded-opentype"),
+    url("/font/Yekan Bakh FaNum 03 Light.woff") format("woff"),
+    url("/font/Yekan Bakh FaNum 03 Light.ttf") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Regular - 400 */
+@font-face {
+    font-family: "Yekan Bakh";
+    src: url("/font/Yekan Bakh FaNum 04 Regular.eot");
+    src: url("/font/Yekan Bakh FaNum 04 Regular.eot?#iefix") format("embedded-opentype"),
+    url("/font/Yekan Bakh FaNum 04 Regular.woff") format("woff"),
+    url("/font/Yekan Bakh FaNum 04 Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Medium - 500 */
+@font-face {
+    font-family: "Yekan Bakh";
+    src: url("/font/Yekan Bakh FaNum 05 Medium.eot");
+    src: url("/font/Yekan Bakh FaNum 05 Medium.eot?#iefix") format("embedded-opentype"),
+    url("/font/Yekan Bakh FaNum 05 Medium.woff") format("woff"),
+    url("/font/Yekan Bakh FaNum 05 Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Bold - 700 */
+@font-face {
+    font-family: "Yekan Bakh";
+    src: url("/font/Yekan Bakh FaNum 06 Bold.eot");
+    src: url("/font/Yekan Bakh FaNum 06 Bold.eot?#iefix") format("embedded-opentype"),
+    url("/font/Yekan Bakh FaNum 06 Bold.woff") format("woff"),
+    url("/font/Yekan Bakh FaNum 06 Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Heavy - 800 */
+@font-face {
+    font-family: "Yekan Bakh";
+    src: url("/font/Yekan Bakh FaNum 07 Heavy.eot");
+    src: url("/font/Yekan Bakh FaNum 07 Heavy.eot?#iefix") format("embedded-opentype"),
+    url("/font/Yekan Bakh FaNum 07 Heavy.woff") format("woff"),
+    url("/font/Yekan Bakh FaNum 07 Heavy.ttf") format("truetype");
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Fat - 900 */
+@font-face {
+    font-family: "Yekan Bakh";
+    src: url("/font/Yekan Bakh FaNum 08 Fat.eot");
+    src: url("/font/Yekan Bakh FaNum 08 Fat.eot?#iefix") format("embedded-opentype"),
+    url("/font/Yekan Bakh FaNum 08 Fat.woff") format("woff"),
+    url("/font/Yekan Bakh FaNum 08 Fat.ttf") format("truetype");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@theme {
+    --color-primary: #6d28d9;
+    --color-primary-hover: #5b21b6;
+
+    --color-body: #faf9ff;
+    --color-header: #ffffff;
+    --color-footer: #ede9fe;
+
+    --color-box: #f5f3ff;
+    --color-card: #ffffff;
+    --color-border: #e9e5f5;
+
+    --color-text-primary: #17152f;
+    --color-text-secondary: #667085;
+
+    --color-accent: #ff8a34;
+
+    --shadow-header: 0 4px 20px rgba(109, 40, 217, 0.1);
+    --shadow-footer: 0 -4px 20px rgba(109, 40, 217, 0.06);
+}
+
+@utility container {
+    margin-inline: auto;
+    padding-inline: 1rem;
+    max-width: 1100px;
+}
+
+body {
+    direction: rtl !important;
+    text-align: right !important;
+    /*background-color: var(--color-body) !important;*/
+    background: radial-gradient(
+            ellipse 50% 35% at 85% 0%,
+            rgba(124, 58, 237, 0.09),
+            transparent 75%
+    ),
+    #f9f8fd;
+    font-family: "Yekan Bakh" !important;
+}
+
+/*.milkdown-editor .milkdown .editor {*/
+/*    padding: 12px 16px !important;*/
+/*}*/
+
+/*.milkdown-editor .milkdown .editor,*/
+/*.milkdown-editor .milkdown .ProseMirror {*/
+/*    padding: 12px 16px !important;*/
+/*}*/
