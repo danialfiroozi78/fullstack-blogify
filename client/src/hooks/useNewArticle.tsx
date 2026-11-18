@@ -5,16 +5,18 @@ import { CreateNewArticleFormType } from "@/types/form.type";
 import { useGetCategoriesQuery } from "@/api/query/categories.query";
 import { useCreateArticleMutation } from "@/api/mutation/article.mutation";
 import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 export default function useNewArticle() {
   const {
-    watch,
     register,
     handleSubmit,
     formState: { errors },
     control,
     reset,
   } = useForm<CreateNewArticleFormType>();
+
+  const { push } = useRouter();
 
   const { categories } = useGetCategoriesQuery(null, {
     selectFromResult: ({ data, isLoading }) => ({
@@ -49,6 +51,7 @@ export default function useNewArticle() {
 
       if (response.isSuccess) {
         toast.success(response.message);
+        push("/profile/my-articles");
 
         reset({
           allow_comments: null,
@@ -62,7 +65,6 @@ export default function useNewArticle() {
         });
       }
     } catch (error) {
-      // console.error(error);
       toast.error("خطایی هنگام ایجاد مقاله رخ داد!");
     }
   };

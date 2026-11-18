@@ -3,7 +3,13 @@
 import Image from "next/image";
 import useMyArticles from "@/hooks/useMyArticles";
 import Link from "next/link";
-import { ArrowUpLeft, BookOpen, CalendarDays } from "lucide-react";
+import {
+  ArrowUpLeft,
+  BookOpen,
+  CalendarDays,
+  FileSearch,
+  Plus,
+} from "lucide-react";
 import MyArticlesSkeleton from "@/components/common/loading/ArticleSkeletonLoading";
 
 export default function MyArticlesPage() {
@@ -38,7 +44,7 @@ export default function MyArticlesPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {myArticlesFetching ? (
           <MyArticlesSkeleton />
-        ) : (
+        ) : myArticlesData?.data?.length ? (
           myArticlesData?.data?.map((article) => (
             <Link
               href={`/profile/my-articles/details/${article.id}`}
@@ -128,6 +134,35 @@ export default function MyArticlesPage() {
               </article>
             </Link>
           ))
+        ) : (
+          <div
+            dir="rtl"
+            className="col-span-full flex min-h-75 w-full flex-col items-center justify-center rounded-2xl border border-border bg-white px-5 py-10 text-center"
+          >
+            <div className="mb-5 flex size-20 items-center justify-center rounded-2xl bg-box">
+              <FileSearch
+                size={36}
+                strokeWidth={1.5}
+                className="text-primary"
+              />
+            </div>
+
+            <h3 className="mb-1 text-lg font-bold text-text-primary">
+              هنوز مقاله ایجاد نشده!
+            </h3>
+
+            <p className="max-w-md text-sm leading-7 text-text-secondary">
+              میتونی با زدن دکمه زیر اولین مقاله خودت رو منتشر کنی!
+            </p>
+
+            <Link
+              href="/profile/new-article"
+              className="mt-6 inline-flex h-11 items-center justify-center gap-1 rounded-xl bg-primary px-5 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary-hover hover:shadow-[0_8px_20px_rgba(109,40,217,0.18)]"
+            >
+              <Plus size={17} />
+              ایجاد مقاله
+            </Link>
+          </div>
         )}
       </div>
     </section>
