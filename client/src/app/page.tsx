@@ -1,22 +1,8 @@
-import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowLeft,
-  ArrowUpLeft,
-  BookOpen,
-  BrainCircuit,
-  Code2,
-  Cpu,
-  Eye,
   Flame,
-  LayoutGrid,
   PenLine,
-  ShieldCheck,
-  Sparkles,
-  Clock3,
-  UserRound,
-  CalendarDays,
-  PenBox,
 } from "lucide-react";
 import {
   getCategories,
@@ -28,6 +14,12 @@ import SectionHeading from "@/components/modules/SectionHeading.module";
 import CategoriesSection from "@/components/modules/Categories.module";
 import ArticleCard from "@/components/modules/ArticleCard.module";
 import PopularArticleCard from "@/components/modules/PopularArticleCard.module";
+import type {Metadata} from "next";
+
+export const metadata: Metadata = {
+    title: "صفحه اصلی | بلاگیفای",
+    description: "جدیدترین و محبوب‌ترین مقالات بلاگیفای را کشف کنید.",
+};
 
 export default async function HomePage() {
   const categories = await getCategories();

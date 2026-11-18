@@ -3,6 +3,12 @@ import { getArticleDetails } from "@/utils/fetch";
 import ArticleContent from "@/components/modules/ShowArticleContent";
 import { Book, CalendarDays, Eye } from "lucide-react";
 import ShowComments from "@/components/modules/ShowComments.module";
+import type {Metadata} from "next";
+
+export const metadata: Metadata = {
+    title: "مقالات | بلاگیفای",
+    description: "جدیدترین و محبوب‌ترین مقالات بلاگیفای را کشف کنید.",
+};
 
 export default async function ArticleDetails({
   params,
@@ -30,7 +36,7 @@ export default async function ArticleDetails({
             className="rounded-xl object-cover transition-transform duration-500 ease-out group-hover:scale-105 mb-5"
           />
           <div>
-            <div className="flex items-center justify-between mb-5">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mb-5">
               <div className="flex items-center gap-1.5 text-sm font-medium text-text-primary">
                 <Image
                   src={
@@ -51,19 +57,16 @@ export default async function ArticleDetails({
                     "ناشناس"}
                 </span>
               </div>
-              <div className="w-px h-4 bg-gray-300" />
               <div className="flex items-center gap-1.5 text-sm font-medium text-text-primary">
                 <CalendarDays className="h-3.5 w-3.5" />
                 <span>
-                  تاریخ انتشار: {article?.data?.published_at || "به‌زودی"}
+                  انتشار: {article?.data?.published_at || "به‌زودی"}
                 </span>
               </div>
-              <div className="w-px h-4 bg-gray-300" />
               <div className="flex items-center gap-1.5 text-sm font-medium text-text-primary">
                 <Eye className="h-3.5 w-3.5" />
                 <span>تعداد بازدید: {article?.data?.views_count}</span>
               </div>
-              <div className="w-px h-4 bg-gray-300" />
               <div className="flex items-center gap-1.5 text-sm font-medium text-text-primary">
                 <Book className="h-3.5 w-3.5" />
                 <span>زمان مطالعه: {article?.data?.reading_time} دقیقه</span>

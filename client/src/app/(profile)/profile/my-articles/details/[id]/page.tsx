@@ -32,6 +32,12 @@ export default function MyArticleDetailsPage() {
 
   return (
     <section>
+      <title>جزئیات مقاله | بلاگیفای</title>
+      <meta
+        name="description"
+        content="جدیدترین و محبوب‌ترین مقالات بلاگیفای را کشف کنید."
+      />
+
       <div className="grid grid-cols-1 md:grid-cols-5 lg:grid-cols-6 gap-4">
         <div className="col-span-full lg:col-span-4 order-2 md:order-1">
           <div className="mb-7 flex items-center gap-3 rounded-xl border border-border bg-card px-4 py-3 shadow-[0_4px_20px_rgba(109,40,217,0.04)]">
