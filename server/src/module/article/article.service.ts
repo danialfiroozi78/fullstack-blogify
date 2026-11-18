@@ -7,6 +7,7 @@ import createHttpError from "http-errors";
 import { UserModel } from "../user/user.model";
 import { Op } from "@sequelize/core";
 import { UserProfileModel } from "../user_profile/user_profile.model";
+import { UPLOAD_DIR } from "../../config/upload.config";
 
 const calculateReadingTime = (content: string) => {
   const words = content.trim().split(/\s+/).filter(Boolean);
@@ -67,13 +68,7 @@ export const createArticleService = async (
 
   const articleId = article.get("id") as number;
 
-  const uploadDir = path.join(
-    process.cwd(),
-    "public",
-    "uploads",
-    "articles",
-    String(articleId),
-  );
+  const uploadDir = path.join(UPLOAD_DIR, "articles", String(articleId));
 
   try {
     await mkdir(uploadDir, { recursive: true });

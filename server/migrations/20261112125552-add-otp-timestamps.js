@@ -1,22 +1,29 @@
+
 "use strict";
 
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.addColumn("otp", "created_at", {
-      type: Sequelize.DATE,
-      allowNull: false,
-      defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
-    });
+    const columns = await queryInterface.describeTable("otp");
 
-    await queryInterface.addColumn("otp", "updated_at", {
-      type: Sequelize.DATE,
-      allowNull: false,
-      defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
-    });
+    if (!columns.created_at) {
+      await queryInterface.addColumn("otp", "created_at", {
+        type: Sequelize.DATE,
+        allowNull: false,
+        defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
+      });
+    }
+
+    if (!columns.updated_at) {
+      await queryInterface.addColumn("otp", "updated_at", {
+        type: Sequelize.DATE,
+        allowNull: false,
+        defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
+      });
+    }
   },
 
   async down(queryInterface) {
-    await queryInterface.removeColumn("otp", "created_at");
-    await queryInterface.removeColumn("otp", "updated_at");
+    // No-op: both columns belong to the initial OTP schema.
   },
 };
+

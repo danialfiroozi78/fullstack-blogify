@@ -10,21 +10,19 @@ import { errorMiddleware } from "./middleware/errors.middleware";
 import { authMiddleware } from "./middleware/auth.middleware";
 import categoryRoute from "./module/category/category.route";
 import commentRoutes from "./module/comment/comment.routes";
+import { UPLOAD_DIR } from "./config/upload.config";
 
 config();
 const app = express();
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: process.env.CLIENT_URL || "http://localhost:3000",
     credentials: true,
   }),
 );
 
-app.use(
-  "/uploads",
-  express.static(path.resolve(process.cwd(), "public/uploads")),
-);
+app.use("/uploads", express.static(UPLOAD_DIR));
 
 app.use(express.json());
 app.use(cookieParser());

@@ -7,6 +7,7 @@ import { UserModel } from "../user/user.model";
 import { avatarSchema } from "./avatar.schema";
 import { UserProfileModel } from "./user_profile.model";
 import { UpdateProfileDto } from "./user_profile.validation";
+import { UPLOAD_DIR } from "../../config/upload.config";
 
 export const getUserProfileService = async (userId: number) => {
   const user = await UserModel.findByPk(userId, {
@@ -25,7 +26,7 @@ export const getUserProfileService = async (userId: number) => {
   };
 };
 
-const avatarDirectory = path.resolve(process.cwd(), "public/uploads/avatars");
+const avatarDirectory = path.join(UPLOAD_DIR, "avatars");
 
 export const updateUserProfileService = async (
   userId: number,
