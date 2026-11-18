@@ -9,6 +9,7 @@ import Modal from "@/components/common/Modal";
 import ProfileLayoutSkeletonLoading from "@/components/common/loading/ProfileLayoutSkeletonLoading";
 import { BookIcon, PenBoxIcon, User2Icon, UserPen } from "lucide-react";
 import useProfileLayout from "@/hooks/useProfileLayout";
+import toast from "react-hot-toast";
 
 export default function UserPanelLayout({ children }: { children: ReactNode }) {
   return (
@@ -157,7 +158,8 @@ function ProfileLayoutContent({ children }: { children: ReactNode }) {
               variant="danger"
               loading={logoutLoading}
               onClick={() =>
-                logoutMutation(null).then(() => {
+                logoutMutation(null).then((data) => {
+                  toast.success(data?.data?.message as string);
                   replace("/auth");
                   refresh();
                 })
