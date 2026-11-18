@@ -75,7 +75,9 @@ export default function useProfile() {
         user_name: data?.profile?.user_name,
         website: data?.profile?.website,
         bio: data?.profile?.bio,
-        birth_date: convertGregorianToJalali(data?.profile?.birth_date ?? ""),
+        birth_date: data?.profile
+          ? convertGregorianToJalali(data?.profile?.birth_date as string)
+          : "",
       });
     }
   }, [profileData, setValues]);

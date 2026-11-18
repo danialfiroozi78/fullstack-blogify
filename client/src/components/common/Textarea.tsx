@@ -33,7 +33,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, InputProps>(
 
     const classes = [
       "w-full rounded-xl border bg-card p-3 text-base font-medium",
-      "text-text-primary placeholder:font-sm placeholder:text-text-secondary",
+      "text-text-primary placeholder:font-light placeholder:text-sm! placeholder:text-text-secondary",
       "outline-none transition-colors duration-200",
       "focus:border-primary focus:ring-2 focus:ring-primary/15",
       "disabled:cursor-not-allowed disabled:bg-box",

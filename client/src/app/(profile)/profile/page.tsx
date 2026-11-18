@@ -21,11 +21,11 @@ export default function ProfilePage() {
 
   return (
     <section>
-        <title>ورود یا ثبت نام | بلاگیفای</title>
-        <meta
-            name="description"
-            content="جدیدترین و محبوب‌ترین مقالات بلاگیفای را کشف کنید."
-        />
+      <title>ورود یا ثبت نام | بلاگیفای</title>
+      <meta
+        name="description"
+        content="جدیدترین و محبوب‌ترین مقالات بلاگیفای را کشف کنید."
+      />
 
       <div className="mb-10 flex items-center gap-3 rounded-xl border border-border bg-card px-4 py-4 shadow-[0_4px_20px_rgba(109,40,217,0.04)]">
         <div className="h-12 w-1 shrink-0 rounded-full bg-primary" />
@@ -77,6 +77,7 @@ export default function ProfilePage() {
               helperText="حداکثر 500 کاراکتر مجاز می باشد!"
               label="بیوگرافی:"
               {...register("bio")}
+              placeholder="چی دوست داری ازت بدونیم؟"
             />
 
             <Controller
