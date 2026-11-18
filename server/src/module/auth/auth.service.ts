@@ -95,7 +95,7 @@ export const logOutService = (res: Response) => {
   res.clearCookie("access_token", {
     httpOnly: true,
     sameSite: "lax",
-    secure: process.env.NODE_ENV === "production",
+    secure: false,
     maxAge: 7 * 24 * 60 * 60 * 1000,
     path: "/",
   });
