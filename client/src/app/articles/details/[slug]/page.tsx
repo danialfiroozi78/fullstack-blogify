@@ -3,11 +3,12 @@ import { getArticleDetails } from "@/utils/fetch";
 import ArticleContent from "@/components/modules/ShowArticleContent";
 import { Book, CalendarDays, Eye } from "lucide-react";
 import ShowComments from "@/components/modules/ShowComments.module";
-import type {Metadata} from "next";
+import type { Metadata } from "next";
+import Avatar from "@/public/images/png/avatar.png";
 
 export const metadata: Metadata = {
-    title: "مقالات | بلاگیفای",
-    description: "جدیدترین و محبوب‌ترین مقالات بلاگیفای را کشف کنید.",
+  title: "مقالات | بلاگیفای",
+  description: "جدیدترین و محبوب‌ترین مقالات بلاگیفای را کشف کنید.",
 };
 
 export default async function ArticleDetails({
@@ -43,7 +44,7 @@ export default async function ArticleDetails({
                     article?.data?.author?.profile?.avatar
                       ? process.env.NEXT_PUBLIC_SERVER_URL +
                         article?.data?.author?.profile?.avatar
-                      : "/images/article-placeholder.webp"
+                      : Avatar
                   }
                   alt={article?.data?.author?.first_name}
                   unoptimized
@@ -59,9 +60,7 @@ export default async function ArticleDetails({
               </div>
               <div className="flex items-center gap-1.5 text-sm font-medium text-text-primary">
                 <CalendarDays className="h-3.5 w-3.5" />
-                <span>
-                  انتشار: {article?.data?.published_at || "به‌زودی"}
-                </span>
+                <span>انتشار: {article?.data?.published_at || "به‌زودی"}</span>
               </div>
               <div className="flex items-center gap-1.5 text-sm font-medium text-text-primary">
                 <Eye className="h-3.5 w-3.5" />

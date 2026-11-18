@@ -7,7 +7,6 @@ import Link from "next/link";
 import { ReactNode, Suspense } from "react";
 import Modal from "@/components/common/Modal";
 import ProfileLayoutSkeletonLoading from "@/components/common/loading/ProfileLayoutSkeletonLoading";
-import { BookIcon, PenBoxIcon, User2Icon, UserPen } from "lucide-react";
 import useProfileLayout from "@/hooks/useProfileLayout";
 import toast from "react-hot-toast";
 
