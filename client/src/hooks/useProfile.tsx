@@ -37,8 +37,8 @@ export default function useProfile() {
         }
       });
 
-      if (birth_date?.trim()) {
-        const [year, month, day] = birth_date.split("/").map(Number);
+      if (birth_date && birth_date?.trim()) {
+        const [year, month, day] = birth_date?.split("/").map(Number);
 
         const { gy, gm, gd } = toGregorian(year, month, day);
 
