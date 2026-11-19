@@ -37,8 +37,8 @@ export default function useProfile() {
         }
       });
 
-      if (birth_date && birth_date?.trim()) {
-        const [year, month, day] = birth_date?.split("/").map(Number);
+      if (typeof birth_date === "string" && birth_date?.trim()) {
+        const [year, month, day] = birth_date!.split("/").map(Number);
 
         const { gy, gm, gd } = toGregorian(year, month, day);
 
@@ -59,7 +59,7 @@ export default function useProfile() {
       }
     } catch (error) {
       console.error("Update profile error:", error);
-      toast.error("خطا در بروزرسانی پروفایل");
+     toast.error("خطا در بروزرسانی پروفایل");
     }
   };
 
