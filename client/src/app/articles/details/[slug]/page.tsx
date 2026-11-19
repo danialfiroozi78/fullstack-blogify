@@ -5,6 +5,7 @@ import { Book, CalendarDays, Eye } from "lucide-react";
 import ShowComments from "@/components/modules/ShowComments.module";
 import type { Metadata } from "next";
 import Avatar from "@/public/images/png/avatar.png";
+import Placeholder from "@/public/images/png/article-placeholder.png";
 
 export const metadata: Metadata = {
   title: "مقالات | بلاگیفای",
@@ -28,13 +29,15 @@ export default async function ArticleDetails({
               article?.data?.cover_image
                 ? process.env.NEXT_PUBLIC_SERVER_URL +
                   article?.data?.cover_image
-                : "/images/article-placeholder.webp"
+                : Placeholder
             }
             alt={article?.data?.title}
             unoptimized
             width="1600"
             height="900"
             className="rounded-xl object-cover transition-transform duration-500 ease-out group-hover:scale-105 mb-5"
+            placeholder="blur"
+            blurDataURL="/images/png/article-placeholder.png"
           />
           <div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mb-5">

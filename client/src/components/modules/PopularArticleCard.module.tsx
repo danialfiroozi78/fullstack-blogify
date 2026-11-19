@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpLeft, Eye, Flame } from "lucide-react";
 import { GetArticlesResType } from "@/types/query.type";
+import Placeholder from "@/public/images/png/article-placeholder.png";
 
 export default function PopularArticleCard({
   item,
@@ -17,13 +18,15 @@ export default function PopularArticleCard({
         src={
           item.thumbnail_image
             ? process.env.NEXT_PUBLIC_SERVER_URL + item.thumbnail_image
-            : "/images/article-placeholder.webp"
+            : Placeholder
         }
         alt={item.title}
         fill
         unoptimized
         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+        placeholder="blur"
+        blurDataURL="/images/png/article-placeholder.png"
       />
 
       <div className="absolute inset-0 bg-linear-to-t from-[#160d2c] via-[#160d2c]/65 to-[#160d2c]/10" />

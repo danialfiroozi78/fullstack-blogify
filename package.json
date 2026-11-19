@@ -7,7 +7,10 @@
   "scripts": {
     "dev": "concurrently -k -n CLIENT,SERVER \"npm run dev --prefix client\" \"npm run dev --prefix server\"",
     "dev:client": "npm run dev --prefix client",
-    "dev:server": "npm run dev --prefix server"
+    "dev:server": "npm run dev --prefix server",
+    "build:client": "npm --prefix client run build",
+    "build:server": "npm --prefix server run build",
+    "buildProject": "npm run build:client && npm run build:server"
   },
   "keywords": [],
   "author": "",

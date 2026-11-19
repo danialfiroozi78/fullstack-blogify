@@ -14,6 +14,7 @@ import {
 import Modal from "@/components/common/Modal";
 import toast from "react-hot-toast";
 import ArticleDetailsSkeleton from "@/components/common/loading/ArticleDetailsSkeleton";
+import Placeholder from "@/public/images/png/article-placeholder.png";
 
 export default function MyArticleDetailsPage() {
   const {
@@ -66,13 +67,15 @@ export default function MyArticleDetailsPage() {
             src={
               data?.data?.cover_image
                 ? process.env.NEXT_PUBLIC_SERVER_URL + data?.data?.cover_image
-                : "/"
+                : Placeholder
             }
             alt={data?.data?.title || ""}
             unoptimized
             width={1600}
             height={900}
             className="w-full rounded-xl mb-5"
+            placeholder="blur"
+            blurDataURL="/images/png/article-placeholder.png"
           />
 
           <ArticleContent content={data?.data?.content ?? ""} />
