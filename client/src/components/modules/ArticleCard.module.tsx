@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpLeft, CalendarDays, PenBox } from "lucide-react";
 import { GetArticlesResType } from "@/types/query.type";
-import Placeholder from "@/public/images/png/article-placeholder.png";
 
 export default function ArticleCard({
   item,
@@ -16,20 +15,23 @@ export default function ArticleCard({
       className="group block h-full"
     >
       <article className="flex h-full flex-col rounded-2xl border border-border bg-card p-3 shadow-[0_8px_30px_rgba(65,35,120,0.05)] transition-all duration-300 ease-out hover:-translate-y-1.5 hover:border-violet-300 hover:shadow-[0_18px_45px_rgba(109,40,217,0.14)]">
-        <div className="relative aspect-video overflow-hidden rounded-xl bg-box">
+        <div
+          className="relative aspect-video overflow-hidden rounded-xl bg-box"
+          style={{
+            backgroundImage: "url('/images/png/article-placeholder.png')",
+          }}
+        >
           <Image
             src={
               item.thumbnail_image
                 ? process.env.NEXT_PUBLIC_SERVER_URL + item.thumbnail_image
-                : Placeholder
+                : "/images/png/article-placeholder.png"
             }
             alt={item.title}
             fill
             unoptimized
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-            placeholder="blur"
-            blurDataURL="/images/png/article-placeholder.png"
           />
         </div>
 

@@ -14,20 +14,25 @@ export default function PopularArticleCard({
       href={`/articles/details/${encodeURIComponent(item.slug)}`}
       className="group relative block h-80 overflow-hidden rounded-3xl bg-[#21133d] sm:h-87.5"
     >
-      <Image
-        src={
-          item.thumbnail_image
-            ? process.env.NEXT_PUBLIC_SERVER_URL + item.thumbnail_image
-            : Placeholder
-        }
-        alt={item.title}
-        fill
-        unoptimized
-        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-        className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-        placeholder="blur"
-        blurDataURL="/images/png/article-placeholder.png"
-      />
+      <div
+        className="relative aspect-video overflow-hidden rounded-xl bg-box"
+        style={{
+          backgroundImage: "url('/images/png/article-placeholder.png')",
+        }}
+      >
+        <Image
+          src={
+            item.thumbnail_image
+              ? process.env.NEXT_PUBLIC_SERVER_URL + item.thumbnail_image
+              : Placeholder
+          }
+          alt={item.title}
+          fill
+          unoptimized
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+        />
+      </div>
 
       <div className="absolute inset-0 bg-linear-to-t from-[#160d2c] via-[#160d2c]/65 to-[#160d2c]/10" />
 

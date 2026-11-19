@@ -173,6 +173,7 @@ export default function NewArticlePage() {
           <Button
             onClick={handleSubmit(createArticle)}
             loading={createArticleLoading}
+            className="w-full sm:w-fit"
           >
             <Check className="size-5" />
             ایجاد مقاله

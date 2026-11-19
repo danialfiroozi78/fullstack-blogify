@@ -20,7 +20,7 @@ export default async function CommentsList({
         <AddComment isAuthenticated={!!token} id={article?.data?.id} />
       ) : (
         <div className="rounded-xl border border-orange-200 bg-orange-50 text-orange-900 font-bold text-center p-5">
-          این مقاله امکان ثبت نظر را ندارد!
+          این مقاله امکان ثبت نظر ندارد!
         </div>
       )}
 
@@ -29,13 +29,7 @@ export default async function CommentsList({
           comments?.data?.map((item) => (
             <div
               key={item.id}
-              className="
-            group rounded-xl border border-border
-            bg-card p-4
-            transition-all duration-300
-            hover:border-violet-200
-            hover:shadow-[0_8px_24px_rgba(109,40,217,0.06)]
-          "
+              className="group rounded-xl border border-border bg-card p-4 transition-all duration-300 hover:border-violet-200 hover:shadow-[0_8px_24px_rgba(109,40,217,0.06)]"
             >
               <div className="flex items-center justify-between gap-3">
                 <div className="flex min-w-0 items-center gap-3">
@@ -85,7 +79,7 @@ export default async function CommentsList({
             </div>
           ))
         ) : (
-          <div className="flex flex-col items-center gap-3 rounded-xl border border-dashed border-border bg-box/50 px-4 py-10 text-center">
+          <div className="col-span-full flex flex-col items-center gap-3 rounded-xl border border-dashed border-border bg-box/50 px-4 py-10 text-center">
             <MessageSquareText className="size-9 text-primary/40" />
 
             <p className="text-sm font-semibold text-text-primary">
