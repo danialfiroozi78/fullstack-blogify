@@ -81,9 +81,7 @@ export async function getArticleComments(
   id: number,
 ): Promise<GetArticleCommentsResType> {
   const res = await fetch(`${process.env.API_URL}comments/article/${id}`, {
-    next: {
-      revalidate: 3600,
-    },
+    cache: "no-store",
   });
 
   return await res.json();

@@ -7,6 +7,7 @@ import { Button } from "@/components/common/Button";
 import { PenBoxIcon } from "lucide-react";
 import { useAddCommentMutation } from "@/api/mutation/comment.mutation";
 import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 export default function AddComment({
   isAuthenticated,
@@ -18,9 +19,11 @@ export default function AddComment({
   const {
     register,
     handleSubmit,
-    reset,
+    setValues,
     formState: { errors },
   } = useForm<{ content: string; guest_name?: string; guest_email?: string }>();
+
+  const router = useRouter();
 
   const [addCommentMutation, { isLoading }] = useAddCommentMutation();
 
@@ -32,11 +35,14 @@ export default function AddComment({
     addCommentMutation({ ...data, id }).then(({ data }) => {
       if (data?.isSuccess) {
         toast.success(data?.message);
-        reset({
-          guest_name: "",
+
+        setValues({
           content: "",
+          guest_name: "",
           guest_email: "",
         });
+
+        router.refresh();
       }
     });
   };
